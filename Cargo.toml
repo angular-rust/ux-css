@@ -6,9 +6,9 @@ readme = "README.md"
 homepage = "https://angular-rust.github.io/ux-css"
 repository = "https://github.com/angular-rust/ux-css"
 documentation = "https://docs.rs/ux-css"
-description = "Backend and runtime agnostic animation library"
-keywords = ["wasm", "web", "webassembly", "gtk", "cairo"]
-categories = ["multimedia", "wasm", "web-programming", "gui"]
+description = "Css processing library"
+keywords = ["wasm", "web", "webassembly", "cairo"]
+categories = ["wasm", "web-programming", "gui"]
 edition = "2018"
 license = "MPL-2.0"
 
