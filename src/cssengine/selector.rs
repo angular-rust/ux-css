@@ -157,7 +157,7 @@ impl<'a> Selector<'a> {
     }
 
     fn matches_impl<E: Element>(&self, idx: usize, element: &E) -> bool {
-        let ref component = self.components[idx];
+        let component = &self.components[idx];
 
         if !match_selector(&component.selector, element) {
             return false;

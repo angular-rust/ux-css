@@ -165,7 +165,7 @@ pub struct Rule<'a> {
 }
 
 /// A style sheet.
-#[derive(Clone, Debug)]
+#[derive(Default, Clone, Debug)]
 pub struct StyleSheet<'a> {
     /// A list of rules.
     pub rules: Vec<Rule<'a>>,
@@ -292,8 +292,8 @@ fn consume_rule_set<'a>(s: &mut Stream<'a>, rules: &mut Vec<Rule<'a>>) -> Result
     s.try_consume_byte(b'{');
 
     let declarations = consume_declarations(s)?;
-    for i in start_rule_idx..rules.len() {
-        rules[i].declarations = declarations.clone();
+    for item in rules.iter_mut().skip(start_rule_idx) {
+        item.declarations = declarations.clone();
     }
 
     s.try_consume_byte(b'}');
@@ -451,11 +451,8 @@ fn consume_declaration<'a>(s: &mut Stream<'a>) -> Result<Declaration<'a>, CssErr
 
 fn consume_term(s: &mut Stream) -> Result<(), CssError> {
     fn consume_digits(s: &mut Stream) {
-        while let Ok(c) = s.curr_byte() {
-            match c {
-                b'0'..=b'9' => s.advance(1),
-                _ => break,
-            }
+        while let Ok(b'0'..=b'9') = s.curr_byte() {
+            s.advance(1)
         }
     }
 
