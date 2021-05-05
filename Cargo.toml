@@ -1,0 +1,29 @@
+[package]
+name = "ux-css"
+version = "0.0.0"
+authors = ["Victor Dudochkin <dudochkin.victor@gmail.com>"]
+readme = "README.md"
+homepage = "https://angular-rust.github.io/ux-css"
+repository = "https://github.com/angular-rust/ux-css"
+documentation = "https://docs.rs/ux-css"
+description = "Css processing library"
+keywords = ["wasm", "web", "webassembly", "cairo"]
+categories = ["wasm", "web-programming", "gui"]
+edition = "2018"
+license = "MPL-2.0"
+
+[badges]
+maintenance = { status = "actively-developed" }
+
+[lib]
+name = "css"
+
+[dependencies]
+combine = "4.5.2"
+log = "0.4.8"
+pom = "3.2.0"
+
+[dev-dependencies]
+# css-engine dependencies
+env_logger = { version = "0.6", default-features = false }
+roxmltree = "0.7"
